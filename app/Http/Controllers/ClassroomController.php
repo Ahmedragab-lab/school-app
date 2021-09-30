@@ -30,11 +30,10 @@ class ClassroomController extends Controller
 
     public function store(Request $request)
     {
-        // return $request;
-        // $request->validate([
-        //     'classname'=>'required|unique:classrooms,classname',
-        //     'grade_id'=>'required',
-        // ]);
+        $request->validate([
+            'class_list.*.classname'=>'required|unique:classrooms,classname',
+            'class_list.*.grade_id'=>'required',
+        ]);
 
         try{
             $class_lists = $request->class_list;
@@ -60,33 +59,34 @@ class ClassroomController extends Controller
 
     public function edit(Classroom $classroom)
     {
-        // return view('grades.edit', compact('grade'));
+        $grades = Grade::all();
+        return view('classrooms.edit', compact('grades','classroom'));
     }
 
     public function update(Request $request, Classroom $classroom)
     {
-    //     $request->validate([
-    //         'name'=>'required',
-    //     ]);
+        // $request->validate([
+        //     'classname'=>'required|unique:classrooms,classname',
+        //     'grade_id'=>'required',
+        // ]);
 
-    //     try{
-    //         $input = $request->all();
-    //         $grade->update($input);
-    //         session()->flash('Edit', 'update successfully');
-    //         return redirect('grades');
-    //    } catch (\Exception $e) {
-    //     return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-    //  }
+        try{
+            $classroom->update($request->all());
+            session()->flash('Edit', 'update successfully');
+            return redirect('classrooms');
+       } catch (\Exception $e) {
+        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+     }
     }
 
     public function destroy(Classroom $classroom)
     {
-    //     try{
-    //         $grade->delete();
-    //         session()->flash('Delete', 'deleted successfully');
-    //         return redirect('grades');
-    //    } catch (\Exception $e) {
-    //     return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-    //  }
+        try{
+            $classroom->delete();
+            session()->flash('Delete', 'deleted successfully');
+            return redirect('classrooms');
+       } catch (\Exception $e) {
+        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+     }
     }
 }
