@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classroom;
 use App\Models\Grade;
 use Illuminate\Http\Request;
 
@@ -96,14 +97,23 @@ class GradeController extends Controller
      * @param  \App\Models\Grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Grade $grade)
+    public function destroy(Grade $grade , Request $request)
     {
-        try{
-            $grade->delete();
-            session()->flash('Delete', 'deleted successfully');
+        $myclass = Classroom::where('grade_id',$grade->id)->pluck('grade_id');
+        // return $myclass->count();
+        // can not delete grade before delete all classrooms belongs to this grade
+        if($myclass->count()==0){
+            try{
+                $grade->delete();
+                session()->flash('Delete', 'deleted successfully');
+                return redirect('grades');
+           } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+           }
+        }else{
+            session()->flash('Error', 'you must delete classrooms first');
             return redirect('grades');
-       } catch (\Exception $e) {
-        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-     }
+        }
+
     }
 }
