@@ -89,4 +89,11 @@ class ClassroomController extends Controller
         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
      }
     }
+    public function delete_all(Request $request){
+        // return 'hi';
+        $delete_all = explode(',', $request->delete_all_id);
+        Classroom::whereIn('id',$delete_all)->delete();
+        session()->flash('Delete', 'deleted successfully');
+        return redirect('classrooms');
+    }
 }

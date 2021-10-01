@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
+use App\Http\Controllers;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,10 +18,11 @@ Route::group(
         Auth::routes();
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         Route::group(['middleware' => ['auth']], function() {
-           Route::resource('users',App\Http\Controllers\UserController::class);
-           Route::resource('roles',App\Http\Controllers\RoleController::class);
-           Route::resource('grades',App\Http\Controllers\GradeController::class);
-           Route::resource('classrooms',App\Http\Controllers\ClassroomController::class);
+           Route::resource('users',Controllers\UserController::class);
+           Route::resource('roles',Controllers\RoleController::class);
+           Route::resource('grades',Controllers\GradeController::class);
+           Route::resource('classrooms',Controllers\ClassroomController::class);
+           Route::post('delete_all',[Controllers\ClassroomController::class,'delete_all'])->name('delete_all');
 
 
         });
