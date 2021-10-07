@@ -8,4 +8,5 @@ return [
    'sections'=>'Sections',
    'grades'=>'Grades',
    'classroom'=>'Classroom',
+   'sections'=>'Sections',
 ];

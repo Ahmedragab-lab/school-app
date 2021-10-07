@@ -41,6 +41,12 @@
               <div class="clearfix"></div>
             </a>
           </li>
+          <li>
+            <a href="{{ route('sections.index') }}">
+              <div class="pull-left"><i class="fa fa-id-badge"></i><span class="right-nav-text">{{ __('site.sections') }}</span></div>
+              <div class="clearfix"></div>
+            </a>
+          </li>
           {{-- <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements1">
               <div class="pull-left"><i class="fa fa-id-card-o"></i><span class="right-nav-text">{{ __('site.sections') }}</span></div>

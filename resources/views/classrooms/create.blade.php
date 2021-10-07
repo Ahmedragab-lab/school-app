@@ -60,7 +60,7 @@
                             </div>
                             <div class="row mt-20">
                                 <div class="col-12">
-                                    <input class="button" data-repeater-create="" type="button" value="Add new">
+                                    <input class="button" data-repeater-create="" type="button" value="Add new"> 
                                 </div>
                             </div>
                             <div class="row mt-20">

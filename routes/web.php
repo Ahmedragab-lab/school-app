@@ -23,7 +23,8 @@ Route::group(
            Route::resource('grades',Controllers\GradeController::class);
            Route::resource('classrooms',Controllers\ClassroomController::class);
            Route::post('delete_all',[Controllers\ClassroomController::class,'delete_all'])->name('delete_all');
-
+           Route::resource('sections',Controllers\SectionController::class);
+           Route::get('/classes/{Grade_id}',[Controllers\SectionController::class,'getclass']);
 
         });
     });

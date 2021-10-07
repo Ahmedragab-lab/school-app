@@ -19,7 +19,7 @@
             </ol>
         </div>
         <div class="col-md-6 mb-30">
-            <a href="{{ route('classrooms.create') }}"  class="btn btn-primary "><i class="fa fa-user-circle"></i> Add Class</a>
+            <a href="{{ route('classrooms.create') }}"  class="btn btn-primary "><i class="fa fa-plus"></i> Add Class</a>
             <button   class="btn btn-danger " id="btn_delete_all" ><i class="fa fa-trash"></i> Delete All</button>
         </div>
     </div>
@@ -57,9 +57,9 @@
                                         <form action="{{ route('classrooms.destroy', $classroom) }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <a href="{{ route('classrooms.edit', $classroom) }}" class="btn btn-info">{{ __('Edit') }}</a>
+                                            <a href="{{ route('classrooms.edit', $classroom) }}" class="btn btn-info"><i class="fa fa-edit"></i> {{ __('Edit') }}</a>
                                             <button type="button" class="btn btn-danger" onclick="confirm('{{ __("Are you sure you want to delete this classroom ?") }}') ? this.parentElement.submit() : ''">
-                                                {{ __('Delete') }}
+                                                <i class="fa fa-trash"></i> {{ __('Delete') }}
                                             </button>
                                         </form>
                                     </td>
