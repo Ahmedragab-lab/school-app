@@ -40,6 +40,7 @@
 <!-- custom -->
 <script src="{{ asset('assets/js/custom.js')}}"></script>
 
+
 <script>
     $(document).ready(function() {
         $('#datatable').DataTable();
