@@ -9,4 +9,7 @@ return [
    'grades'=>'Grades',
    'classroom'=>'Classroom',
    'sections'=>'Sections',
+   'parent'=>'Parent',
+   'parent-list'=>'Parent List',
+   'parent-add'=>'New Parent',
 ];

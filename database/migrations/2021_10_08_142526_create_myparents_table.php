@@ -17,7 +17,6 @@ class CreateMyparentsTable extends Migration
             $table->id();
             $table->string('Email')->unique();
             $table->string('Password');
-
             //Fatherinformation
             $table->string('Name_Father');
             $table->string('National_ID_Father');
@@ -25,10 +24,6 @@ class CreateMyparentsTable extends Migration
             $table->string('Phone_Father');
             $table->string('Job_Father');
             $table->string('Address_Father');
-            // $table->bigInteger('Nationality_Father_id')->unsigned();
-            // $table->bigInteger('Blood_Type_Father_id')->unsigned();
-            // $table->bigInteger('Religion_Father_id')->unsigned();
-
             //Mother information
             $table->string('Name_Mother');
             $table->string('National_ID_Mother');
@@ -36,18 +31,14 @@ class CreateMyparentsTable extends Migration
             $table->string('Phone_Mother');
             $table->string('Job_Mother');
             $table->string('Address_Mother');
-            // $table->bigInteger('Nationality_Mother_id')->unsigned();
-            // $table->bigInteger('Blood_Type_Mother_id')->unsigned();
-            // $table->bigInteger('Religion_Mother_id')->unsigned();
-
-
+             // foreign key
             $table->foreignId('Nationality_Father_id')->references('id')->on('nationalities');
             $table->foreignId('Blood_Type_Father_id')->references('id')->on('type__bloods');
             $table->foreignId('Religion_Father_id')->references('id')->on('religions');
             $table->foreignId('Nationality_Mother_id')->references('id')->on('nationalities');
             $table->foreignId('Blood_Type_Mother_id')->references('id')->on('type__bloods');
             $table->foreignId('Religion_Mother_id')->references('id')->on('religions');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

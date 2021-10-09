@@ -47,17 +47,17 @@
               <div class="clearfix"></div>
             </a>
           </li>
-          {{-- <li>
+          <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements1">
-              <div class="pull-left"><i class="fa fa-id-card-o"></i><span class="right-nav-text">{{ __('site.sections') }}</span></div>
+              <div class="pull-left"><i class="fa fa-id-card-o"></i><span class="right-nav-text">{{ __('site.parent') }}</span></div>
               <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
             </a>
             <ul id="elements1" class="collapse" data-parent="#sidebarnav">
-              <li><a href="#">movies</a></li>
-              <li><a href="#">mp3</a></li>
-              <li><a href="#">video</a></li>
+              <li><a href="{{ route('parent') }}">{{ __('site.parent-list') }}</a></li>
+              <li><a href="#">{{ __('site.parent-add') }}</a></li>
+
             </ul>
-          </li> --}}
+          </li>
         </ul>
     </div>
   </div>

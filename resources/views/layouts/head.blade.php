@@ -7,7 +7,7 @@
 
 <!-- css -->
 {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" /> --}}
-
+<link href="{{ URL::asset('css/wizard.css') }}" rel="stylesheet" id="bootstrap-css">
 @yield('css')
 <!--- Style css -->
 @if (App::getLocale() == 'en')

@@ -28,5 +28,6 @@ Route::group(
            Route::get('test', function () {
                  return view('empty');
            });
+           Route::view('parent', 'livewire.parent')->name('parent');
         });
     });
