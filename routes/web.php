@@ -24,6 +24,7 @@ Route::group(
            Route::resource('classrooms',Controllers\ClassroomController::class);
            Route::post('delete_all',[Controllers\ClassroomController::class,'delete_all'])->name('delete_all');
            Route::resource('sections',Controllers\SectionController::class);
+           Route::resource('cruds',Controllers\CrudController::class);
            Route::get('/classes/{Grade_id}',[Controllers\SectionController::class,'getclass']);
            Route::get('test', function () {
                  return view('empty');

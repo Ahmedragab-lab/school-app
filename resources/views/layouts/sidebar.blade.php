@@ -53,10 +53,22 @@
               <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
             </a>
             <ul id="elements1" class="collapse" data-parent="#sidebarnav">
-              <li><a href="{{ route('parent') }}">{{ __('site.parent-list') }}</a></li>
-              <li><a href="#">{{ __('site.parent-add') }}</a></li>
-
+                <li><a href="{{ route('parent') }}">{{ __('site.parent-add') }}</a></li>
+                <li><a href="#">{{ __('site.parent-list') }}</a></li>
             </ul>
+          </li>
+          {{-- test crud with ajax --}}
+          <li>
+            <a href="{{ route('cruds.index') }}">
+              <div class="pull-left"><i class="fa fa-id-badge"></i><span class="right-nav-text">{{ __('test') }}</span></div>
+              <div class="clearfix"></div>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url('test') }}">
+              <div class="pull-left"><i class="fa fa-id-badge"></i><span class="right-nav-text">{{ __('test-counterlivewire') }}</span></div>
+              <div class="clearfix"></div>
+            </a>
           </li>
         </ul>
     </div>
