@@ -1,4 +1,20 @@
 <div>
+    @if (!empty($successMessage))
+        <div class="alert alert-success" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            {{ $successMessage }}
+        </div>
+    @endif
+
+    @if ($catchError)
+        <div class="alert alert-danger" id="success-danger">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            {{ $catchError }}
+        </div>
+    @endif
+
+
+
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step">
@@ -36,7 +52,8 @@
                         <br>
                         <input type="hidden" wire:model="Parent_id">
                         <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button"
-                                wire:click="back(2)">{{ trans('Parent_trans.Back') }}</button>
+                                wire:click="back(2)">{{ trans('Parent_trans.Back') }}
+                        </button>
                         @if($updateMode)
                             <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="submitForm_edit"
                                     type="button">{{trans('Parent_trans.Finish')}}
