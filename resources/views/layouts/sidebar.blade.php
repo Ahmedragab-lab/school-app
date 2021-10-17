@@ -53,8 +53,8 @@
               <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
             </a>
             <ul id="elements1" class="collapse" data-parent="#sidebarnav">
-                <li><a href="{{ route('parent') }}">{{ __('site.parent-add') }}</a></li>
-                <li><a href="#">{{ __('site.parent-list') }}</a></li>
+                {{-- <li><a href="{{ route('parent') }}">{{ __('site.parent-add') }}</a></li> --}}
+                <li><a href="{{ route('parent') }}">{{ __('site.parent-list') }}</a></li>
             </ul>
           </li>
           {{-- test crud with ajax --}}

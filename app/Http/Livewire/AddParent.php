@@ -43,7 +43,7 @@ class AddParent extends Component
             'Phone_Mother' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:11|max:11'
         ]);
     }
-    // real time validation----------------------------------------------------------------------------
+    // end real time validation----------------------------------------------------------------------------
 
 
     public function render()
@@ -52,10 +52,15 @@ class AddParent extends Component
             'Nationalities' => Nationalitie::all(),
             'Type_Bloods' => Type_Blood::all(),
             'Religions' => Religion::all(),
-            // 'my_parents' => My_Parent::all(),
+            'my_parents' => Myparent::all(),
         ]);
 
     }
+    //show add form
+    public function showformadd(){
+        $this->show_table = false;
+    }
+    //end show add form
     //firstStepSubmit
     public function firstStepSubmit(){
         $this->validate([

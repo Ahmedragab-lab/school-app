@@ -21,8 +21,6 @@
             <div class="card-body">
                 <h1>{{ __('site.parent-add') }} </h1>
                 @livewire('add-parent')
-
-
             </div>
         </div>
     </div>
