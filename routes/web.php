@@ -27,8 +27,12 @@ Route::group(
            Route::resource('cruds',Controllers\CrudController::class);
            Route::get('/classes/{Grade_id}',[Controllers\SectionController::class,'getclass']);
            Route::get('test', function () {
-                 return view('empty');
-           });
-           Route::view('parent', 'livewire.parent')->name('parent');
+               return view('empty');
+            });
+            Route::view('parent', 'livewire.parent')->name('parent');
+
+
+            Route::resource('teachers',Controllers\TeacherController::class);
+
         });
     });
