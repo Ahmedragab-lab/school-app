@@ -19,7 +19,8 @@
                         </button>
                     @else
                         <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="submitForm"
-                                type="button">{{ trans('Parent_trans.Finish') }}</button>
+                                type="button">{{ trans('Parent_trans.Finish') }}
+                        </button>
                     @endif
                 </div>
             </div>

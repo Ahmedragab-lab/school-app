@@ -1,3 +1,4 @@
+
 <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="showformadd" type="button">
     {{ trans('Parent_trans.add_parent') }}
 </button>
