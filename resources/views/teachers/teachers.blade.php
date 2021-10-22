@@ -44,13 +44,19 @@
                                             <?php $i++; ?>
                                             <td>{{ $i }}</td>
                                             <td>{{$Teacher->Name}}</td>
-                                            <td>{{$Teacher->genders->Name}}</td>
+                                            <td>{{$Teacher->genders->name}}</td>
                                             <td>{{$Teacher->Joining_Date}}</td>
-                                            <td>{{$Teacher->specializations->Name}}</td>
-                                                <td>
-                                                    <a href="{{route('teachers.edit',$Teacher->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_Teacher{{ $Teacher->id }}" title="{{ trans('Grades_trans.Delete') }}"><i class="fa fa-trash"></i></button>
-                                                </td>
+                                            <td>{{$Teacher->specializations->name}}</td>
+                                            <td>
+                                                <a href="{{route('teachers.edit',$Teacher->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                        data-toggle="modal" data-target="#delete_Teacher{{ $Teacher->id }}"
+                                                        title="{{ trans('Grades_trans.Delete') }}" >
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
                                             </tr>
 
                                             <div class="modal fade" id="delete_Teacher{{$Teacher->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,7 +80,7 @@
                                                                 <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">{{ trans('My_Classes_trans.Close') }}</button>
                                                                 <button type="submit"
-                                                                        class="btn btn-danger">{{ trans('My_Classes_trans.submit') }}</button>
+                                                                        class="btn btn-danger">{{ trans('My_Classes_trans.Delete') }}</button>
                                                             </div>
                                                         </div>
                                                     </div>

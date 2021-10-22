@@ -11,4 +11,12 @@ class Teacher extends Model
     use HasTranslations;
     public $translatable = ['Name'];
     protected $guarded=[];
+
+    public function genders(){
+        return $this->belongsTo(Gender::class,'Gender_id');
+    }
+    public function specializations()
+    {
+        return $this->belongsTo(Speacialization::class,'Specialization_id');
+    }
 }

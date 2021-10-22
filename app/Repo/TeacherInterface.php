@@ -3,8 +3,14 @@ namespace App\Repo;
 
 interface TeacherInterface{
 
-    //get all teachers
+
     public function getAllTeachers();
+    public function getSpeacialization();
+    public function getGender();
+    public function StoreTeachers($request);
+    public function editTeachers($id);
+    public function UpdateTeachers($request);
+    public function DeleteTeachers($request);
 
 
 }

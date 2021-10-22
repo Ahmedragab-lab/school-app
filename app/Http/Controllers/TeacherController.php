@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTeachers;
 use App\Models\Gender;
 use App\Models\Speacialization;
 use App\Models\Teacher;
 use App\Repo\TeacherInterface;
+use Exception;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -25,71 +27,37 @@ class TeacherController extends Controller
         // return 'hello';
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        $genders = Gender::all();
-        $specializations = Speacialization::all();
+        $genders = $this->Teacher->getGender();
+        $specializations = $this->Teacher->getSpeacialization();
         return view('teachers.create',compact('genders','specializations'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(StoreTeachers $request){
+        return $this->Teacher->StoreTeachers($request);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
     public function show(Teacher $teacher)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Teacher $teacher)
+    public function edit($id)
     {
-        //
+        $Teachers = $this->Teacher->editTeachers($id);
+        $genders = $this->Teacher->getGender();
+        $specializations = $this->Teacher->getSpeacialization();
+        return view('teachers.Edit',compact('genders','specializations','Teachers'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request)
     {
-        //
+        return $this->Teacher->UpdateTeachers($request);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Teacher $teacher)
+    public function destroy(Request $request)
     {
-        //
+        return $this->Teacher->DeleteTeachers($request);
     }
 }

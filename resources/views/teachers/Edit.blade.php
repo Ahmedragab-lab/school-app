@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
+
 @section('title')
     {{ trans('Teacher_trans.Edit_Teacher') }}
 @stop
@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('Teachers.update','test')}}" method="post">
+                            <form action="{{route('teachers.update','test')}}" method="post">
                              {{method_field('patch')}}
                              @csrf
                             <div class="form-row">
@@ -74,9 +74,9 @@
                                 <div class="form-group col">
                                     <label for="inputCity">{{trans('Teacher_trans.specialization')}}</label>
                                     <select class="custom-select my-1 mr-sm-2" name="Specialization_id">
-                                        <option value="{{$Teachers->Specialization_id}}">{{$Teachers->specializations->Name}}</option>
+                                        <option value="{{$Teachers->Specialization_id}}">{{$Teachers->specializations->name}}</option>
                                         @foreach($specializations as $specialization)
-                                            <option value="{{$specialization->id}}">{{$specialization->Name}}</option>
+                                            <option value="{{$specialization->id}}">{{$specialization->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('Specialization_id')
@@ -86,9 +86,9 @@
                                 <div class="form-group col">
                                     <label for="inputState">{{trans('Teacher_trans.Gender')}}</label>
                                     <select class="custom-select my-1 mr-sm-2" name="Gender_id">
-                                        <option value="{{$Teachers->Gender_id}}">{{$Teachers->genders->Name}}</option>
+                                        <option value="{{$Teachers->Gender_id}}">{{$Teachers->genders->name}}</option>
                                         @foreach($genders as $gender)
-                                            <option value="{{$gender->id}}">{{$gender->Name}}</option>
+                                            <option value="{{$gender->id}}">{{$gender->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('Gender_id')
@@ -131,6 +131,5 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
+
 @endsection
