@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gender;
+use App\Models\Speacialization;
 use App\Models\Teacher;
+use App\Repo\TeacherInterface;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $Teacher;
+
+    public function __construct(TeacherInterface $Teacher)
+    {
+        $this->Teacher = $Teacher;
+    }
+
     public function index()
     {
-        //
+        $Teachers = $this->Teacher->getAllTeachers();
+        // $Teachers = Teacher::all();
+        return view('teachers.teachers',compact('Teachers'));
+        // return 'hello';
     }
 
     /**
@@ -24,7 +32,9 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        $genders = Gender::all();
+        $specializations = Speacialization::all();
+        return view('teachers.create',compact('genders','specializations'));
     }
 
     /**

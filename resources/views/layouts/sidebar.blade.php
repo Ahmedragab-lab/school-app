@@ -75,7 +75,7 @@
               <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
             </a>
             <ul id="elements2" class="collapse" data-parent="#sidebarnav">
-                <li><a href="{{ route('teachers') }}">{{ __('teacher-list') }}</a></li>
+                <li><a href="{{ route('teachers.index') }}">{{ __('teacher-list') }}</a></li>
             </ul>
           </li>
         </ul>
