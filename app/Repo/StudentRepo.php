@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Hash;
 
 class studentRepo implements StudentInterface{
 
+
+    public function Get_Student(){
+        $students= Student::all();
+        return view('Students.index',compact('students'));
+    }
     // create new student
     public function Create_Student(){
         $data['Genders'] = Gender::all();
