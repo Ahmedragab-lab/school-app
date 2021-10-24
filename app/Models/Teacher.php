@@ -19,4 +19,8 @@ class Teacher extends Model
     {
         return $this->belongsTo(Speacialization::class,'Specialization_id');
     }
+    public function Sections()
+    {
+        return $this->belongsToMany(Section::class,'teacher_section');
+    }
 }

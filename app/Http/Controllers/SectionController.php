@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Section;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -18,7 +19,8 @@ class SectionController extends Controller
     {
         $sections = Section::all();
         $grades = Grade::with(['sections'])->get();
-        return view('sections.index',compact('grades','sections'));
+        $teachers = Teacher::all();
+        return view('sections.index',compact('grades','sections','teachers'));
     }
 
     /**
@@ -29,8 +31,8 @@ class SectionController extends Controller
     public function create(Section $section)
     {
         $grades = Grade::with(['classrooms'])->get();
-
-        return view('sections.create',compact('grades','section'));
+        $teachers = Teacher::all();
+        return view('sections.create',compact('grades','section','teachers'));
     }
 
     /**
@@ -53,6 +55,7 @@ class SectionController extends Controller
         // $section->grade_id = $request->Grade_id;
         // $section->class_id = $request->Class_id;
         $section->save();
+        $section->teachers()->attach($request->teacher_id);
         session()->flash('Add', 'create successfully');
         return redirect('sections');
     }
@@ -77,7 +80,8 @@ class SectionController extends Controller
     public function edit(Section $section)
     {
         $grades = Grade::with(['classrooms'])->get();
-        return view('sections.edit',compact('grades','section'));
+        $teachers = Teacher::all();
+        return view('sections.edit',compact('grades','section','teachers'));
     }
 
     /**
@@ -96,6 +100,13 @@ class SectionController extends Controller
             'class_id'=>$request->Class_id,
           ]);
           $section->save();
+        //   $section->teachers()->attach($request->teacher_id);
+          // update pivot tABLE
+          if (isset($request->teacher_id)) {
+            $section->teachers()->sync($request->teacher_id);
+        } else {
+            $section->teachers()->sync(array());
+        }
         session()->flash('Edit', 'update successfully');
         return redirect('sections');
     }

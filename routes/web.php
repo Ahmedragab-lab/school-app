@@ -29,10 +29,13 @@ Route::group(
            Route::get('test', function () {
                return view('empty');
             });
-            Route::view('parent', 'livewire.parent')->name('parent');
-
-
-            Route::resource('teachers',Controllers\TeacherController::class);
-
+//=======================================parent ==============================
+           Route::view('parent', 'livewire.parent')->name('parent');
+//=======================================teacher =============================
+           Route::resource('teachers',Controllers\TeacherController::class);
+//======================================= students ===========================
+            Route::resource('Students',Controllers\StudentController::class);
+            Route::get('Get_classrooms/{Grade_id}',[Controllers\StudentController::class,'get_classrooms']);
+            Route::get('Get_sections/{Classroom_id}',[Controllers\StudentController::class,'Get_sections']);
         });
     });

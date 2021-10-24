@@ -50,6 +50,18 @@
                                 @endforeach --}}
                                </select>
                             </div>
+                            <div class="col">
+                                <label for="inputName" class="control-label">{{ trans('Sections_trans.Name_Teacher') }}</label>
+                                <select multiple name="teacher_id[]" class="form-control" id="exampleFormControlSelect2">
+                                    @foreach($section->teachers as $teacher)
+                                        <option selected value="{{$teacher['id']}}">{{$teacher['Name']}}</option>
+                                    @endforeach
+
+                                    @foreach($teachers as $teacher)
+                                        <option value="{{$teacher->id}}">{{$teacher->Name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <div class="col-lg-6">
                             <button class="btn btn-success" style="margin: 10px;" type="submit">save</button>

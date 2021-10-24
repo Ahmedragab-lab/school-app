@@ -85,6 +85,7 @@
                                 <th class="wd-10p border-bottom-0">#</th>
                                 <th class="wd-10p border-bottom-0">section name</th>
                                 <th class="wd-10p border-bottom-0">class name</th>
+                                <th class="wd-10p border-bottom-0">teacher</th>
                                 <th class="wd-10p border-bottom-0">status</th>
                                 <th class="wd-10p border-bottom-0">action</th>
                             </tr>
@@ -98,6 +99,12 @@
                                     <td>{{ $section->section_name }}</td>
                                     <td>{{ $section->classroom->classname }}</td>
                                     <td>
+                                        @foreach ( $section->teachers as $teacher )
+                                         {{-- <li> {{ $teacher->Name }} </li> --}}
+                                         <li> {{ $teacher['Name'] }} </li>
+                                        @endforeach
+                                    </td>
+                                    <td>
                                         <label class="badge {{ $section->status ==1 ? "badge-success":"badge-danger"}}" style="padding: 15px;font-size: 12px;">
                                             {{ $section->status ==1 ? "active":"not active"}}
                                         </label>
@@ -107,7 +114,7 @@
                                             @csrf
                                             @method('delete')
                                             <a href="{{ route('sections.edit', $section) }}" class="btn btn-info">{{ __('Edit') }}</a>
-                                            <button type="button" class="btn btn-danger" onclick="confirm('{{ __("Are you sure you want to delete this section ?") }}') ? this.parentElement.submit() : ''">
+                                            <button type="button" class="btn btn-danger" onclick="confirm('{{ __('Are you sure you want to delete this section ?') }}') ? this.parentElement.submit() : ''">
                                                 {{ __('Delete') }}
                                             </button>
                                         </form>
