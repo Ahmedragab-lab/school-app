@@ -19,13 +19,10 @@ class StudentController extends Controller
     {
       $this->Student = $Student;
     }
-
     public function index()
     {
         return $this->Student->Get_Student();
     }
-
-
     public function create()
     {
         return $this->Student->Create_Student();
@@ -54,32 +51,19 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit( $id)
     {
-        //
+        return $this->Student->Edit_Student($id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Student $student)
+    public function update(StoreStudentsRequest $request)
     {
-        //
+        return $this->Student->Update_Student($request);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
-        //
+        return $this->Student->Delete_Student($id);
     }
 
     public function get_classrooms($Grade_id){

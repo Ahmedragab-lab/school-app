@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('Students.destroy','test')}}" method="post">
+                <form action="{{route('Students.destroy',$student->id)}}" method="post">
                     @csrf
                     @method('DELETE')
 
