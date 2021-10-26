@@ -5,6 +5,7 @@ namespace App\Repo;
 use App\Models\Classroom;
 use App\Models\Gender;
 use App\Models\Grade;
+use App\Models\Image;
 use App\Models\Myparent;
 use App\Models\Nationalitie;
 use App\Models\Section;
@@ -38,7 +39,7 @@ class studentRepo implements StudentInterface{
         return $list_classes;
     }
     public function Store_Student($request){
-        // DB::beginTransaction();
+        DB::beginTransaction();  // begin transaction
         try {
             $students = new Student();
             $students->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
@@ -55,27 +56,26 @@ class studentRepo implements StudentInterface{
             $students->academic_year = $request->academic_year;
             $students->save();
             // insert img
-            // if($request->hasfile('photos'))
-            // {
-            //     foreach($request->file('photos') as $file)
-            //     {
-            //         $name = $file->getClientOriginalName();
-            //         $file->storeAs('attachments/students/'.$students->name, $file->getClientOriginalName(),'upload_attachments');
-
-            //         // insert in image_table
-            //         $images= new Image();
-            //         $images->filename=$name;
-            //         $images->imageable_id= $students->id;
-            //         $images->imageable_type = 'App\Models\Student';
-            //         $images->save();
-            //     }
-            // }
-            DB::commit(); // insert data
+            if($request->hasfile('photos'))
+            {
+                foreach($request->file('photos') as $file)
+                {
+                    $name = $file->getClientOriginalName();
+                    $file->storeAs('attachments/students/'.$students->name, $file->getClientOriginalName(),'upload_attachments');
+                    // insert in image_table
+                    $images= new Image();
+                    $images->filename       = $name;
+                    $images->imageable_id   = $students->id;
+                    $images->imageable_type = 'App\Models\Student';
+                    $images->save();
+                }
+            }
+            DB::commit(); // commit
             toastr()->success(trans('messages.success'));
             return redirect()->route('Students.index');
         }
         catch (\Exception $e){
-            DB::rollback();
+            DB::rollback();  // rollback
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
