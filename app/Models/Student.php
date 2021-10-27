@@ -24,6 +24,12 @@ class Student extends Model
     public function section(){
         return $this->belongsTo(Section::class,'section_id');
     }
+    public function Nationality(){
+        return $this->belongsTo(Nationalitie::class,'nationalitie_id');
+    }
+    public function myparent(){
+        return $this->belongsTo(Myparent::class,'parent_id');
+    }
     public function images(){
         return $this->morphMany(Image::class , 'imageable');
     }

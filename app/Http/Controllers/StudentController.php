@@ -34,24 +34,13 @@ class StudentController extends Controller
         return $this->Student->Store_Student($request);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Student $student)
+    public function show($id)
     {
-        //
+        return $this->Student->Show_Student($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
-     */
-    public function edit( $id)
+
+    public function edit($id)
     {
         return $this->Student->Edit_Student($id);
     }
@@ -71,5 +60,14 @@ class StudentController extends Controller
     }
     public function Get_sections($Classroom_id){
         return $this->Student->Get_sections($Classroom_id);
+    }
+    public function Upload_attachment(Request $request){
+        return $this->Student->Upload_attachment($request);
+    }
+    public function Download_attachment($studentname, $filename){
+        return $this->Student->Download_attachment($studentname,$filename);
+    }
+    public function Delete_attachment(Request $request){
+        return $this->Student->Delete_attachment($request);
     }
 }

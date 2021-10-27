@@ -11,5 +11,9 @@ interface StudentInterface{
     public function Edit_Student($student);
     public function Update_Student($request);
     public function Delete_Student($id);
+    public function Show_Student($id);
+    public function Upload_attachment($request);
+    public function Download_attachment($studentname, $filename);
+    public function Delete_attachment($request);
 
 }
