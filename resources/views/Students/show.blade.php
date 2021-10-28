@@ -38,40 +38,52 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade active show" id="home-02" role="tabpanel"
                                      aria-labelledby="home-02-tab">
-                                    <table class="table table-striped table-hover" style="text-align:center">
+                                    <table class="table table-striped table-hover" >
                                         <tbody>
-                                        <tr>
-                                            <th scope="row">{{trans('Students_trans.name')}}</th>
-                                            <td>{{ $Student->name }}</td>
-                                            <th scope="row">{{trans('Students_trans.email')}}</th>
-                                            <td>{{$Student->email}}</td>
-                                            <th scope="row">{{trans('Students_trans.gender')}}</th>
-                                            <td>{{$Student->gender->name}}</td>
-                                            <th scope="row">{{trans('Students_trans.Nationality')}}</th>
-                                            <td>{{$Student->Nationality->Name}}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <th scope="row">{{trans('Students_trans.Grade')}}</th>
-                                            <td>{{ $Student->grade->name }}</td>
-                                            <th scope="row">{{trans('Students_trans.classrooms')}}</th>
-                                            <td>{{$Student->classroom->classname}}</td>
-                                            <th scope="row">{{trans('Students_trans.section')}}</th>
-                                            <td>{{$Student->section->section_name}}</td>
-                                            <th scope="row">{{trans('Students_trans.Date_of_Birth')}}</th>
-                                            <td>{{ $Student->Date_Birth}}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <th scope="row">{{trans('Students_trans.parent')}}</th>
-                                            <td>{{ $Student->myparent->Name_Father}}</td>
-                                            <th scope="row">{{trans('Students_trans.academic_year')}}</th>
-                                            <td>{{ $Student->academic_year }}</td>
-                                            <th scope="row"></th>
-                                            <td></td>
-                                            <th scope="row"></th>
-                                            <td></td>
-                                        </tr>
+                                            <div class="row">
+                                                <div class="col-md">
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.name')}}</th>
+                                                        <td>{{ $Student->name }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.email')}}</th>
+                                                        <td>{{$Student->email}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.gender')}}</th>
+                                                        <td>{{$Student->gender->name}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.Nationality')}}</th>
+                                                        <td>{{$Student->Nationality->Name}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.Grade')}}</th>
+                                                        <td>{{ $Student->grade->name }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.classrooms')}}</th>
+                                                        <td>{{$Student->classroom->classname}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.section')}}</th>
+                                                        <td>{{$Student->section->section_name}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.Date_of_Birth')}}</th>
+                                                        <td>{{ $Student->Date_Birth}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.parent')}}</th>
+                                                        <td>{{ $Student->myparent->Name_Father}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">{{trans('Students_trans.academic_year')}}</th>
+                                                        <td>{{ $Student->academic_year }}</td>
+                                                    </tr>
+                                                </div>
+                                            </div>
                                         </tbody>
                                     </table>
                                 </div>

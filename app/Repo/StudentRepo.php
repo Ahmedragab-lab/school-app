@@ -132,7 +132,6 @@ class studentRepo implements StudentInterface{
         {
             $name = $file->getClientOriginalName();
             $file->storeAs('attachments/students/'.$request->student_name, $file->getClientOriginalName(),'upload_attachments');
-
             // insert in image_table
             $images= new image();
             $images->filename=$name;

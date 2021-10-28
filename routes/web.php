@@ -41,5 +41,6 @@ Route::group(
             Route::get('Download_attachment/{studentname}/{filename}',[Controllers\StudentController::class,'Download_attachment'])->name('Download_attachment');
             Route::post('Delete_attachment',[Controllers\StudentController::class,'Delete_attachment'])->name('Delete_attachment');
 
+            Route::resource('Promotion',Controllers\PromotionController::class);
         });
     });

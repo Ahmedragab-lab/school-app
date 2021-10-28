@@ -47,36 +47,42 @@
               <div class="clearfix"></div>
             </a>
           </li>
-          <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements2">
-              <div class="pull-left"><i class="fa fa-id-card-o"></i><span class="right-nav-text">{{ __('teacher') }}</span></div>
-              <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
-            </a>
-            <ul id="elements2" class="collapse" data-parent="#sidebarnav">
-                <li><a href="{{ route('teachers.index') }}">{{ __('teacher-list') }}</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu"><i class="fas fa-user-graduate"></i>{{trans('main_trans.students')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
-            <ul id="students-menu" class="collapse">
+          {{-- teacher route --}}
+            <li>
+                <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements2">
+                <div class="pull-left"><i class="fa fa-id-card-o"></i><span class="right-nav-text">{{ __('teacher') }}</span></div>
+                <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
+                </a>
+                <ul id="elements2" class="collapse" data-parent="#sidebarnav">
+                    <li><a href="{{ route('teachers.index') }}">{{ __('teacher-list') }}</a></li>
+                </ul>
+            </li>
+          {{-- end teacher route --}}
+          {{-- student route --}}
                 <li>
-                    <a href="javascript:void(0);" data-toggle="collapse" data-target="#Student_information">{{trans('main_trans.Student_information')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
-                    <ul id="Student_information" class="collapse">
+                    <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements3">
+                    <div class="pull-left"><i class="fa fa-address-book"></i><span class="right-nav-text">{{trans('main_trans.students')}}</span></div>
+                    <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
+                    </a>
+                    <ul id="elements3" class="collapse" data-parent="#sidebarnav">
                         <li> <a href="{{route('Students.create')}}">{{trans('main_trans.add_student')}}</a></li>
                         <li> <a href="{{route('Students.index')}}">{{trans('main_trans.list_students')}}</a></li>
+                        <li> <a href="{{route('Promotion.index')}}">{{trans('main_trans.add_Promotion')}}</a></li>
+                        <li> <a href="{{route('Promotion.create')}}">{{trans('main_trans.list_Promotions')}}</a> </li>
                     </ul>
                 </li>
-            </ul>
-          </li>
-          <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements1">
-              <div class="pull-left"><i class="fa fa-id-card-o"></i><span class="right-nav-text">{{ __('site.parent') }}</span></div>
-              <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
-            </a>
-            <ul id="elements1" class="collapse" data-parent="#sidebarnav">
-                <li><a href="{{ route('parent') }}">{{ __('site.parent-list') }}</a></li>
-            </ul>
-          </li>
+          {{-- End student route --}}
+          {{--  parent route --}}
+            <li>
+                <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements1">
+                <div class="pull-left"><i class="fa fa-id-card-o"></i><span class="right-nav-text">{{ __('site.parent') }}</span></div>
+                <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
+                </a>
+                <ul id="elements1" class="collapse" data-parent="#sidebarnav">
+                    <li><a href="{{ route('parent') }}">{{ __('site.parent-list') }}</a></li>
+                </ul>
+            </li>
+          {{--  End parent route --}}
           {{-- test crud with ajax --}}
           <li>
             <a href="{{ route('cruds.index') }}">

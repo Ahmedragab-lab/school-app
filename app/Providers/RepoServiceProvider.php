@@ -16,6 +16,7 @@ class RepoServiceProvider extends ServiceProvider
     {
         $this->app->bind(Repo\TeacherInterface::class, Repo\TeacherRepo::class);
         $this->app->bind(Repo\StudentInterface::class, Repo\StudentRepo::class);
+        $this->app->bind(Repo\PromotionInterface::class, Repo\PromotionRepo::class);
         // $this->app->bind('App\Repo\TeacherInterface', 'App\Repo\TeacherRepo');
     }
 
