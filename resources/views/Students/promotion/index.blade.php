@@ -58,7 +58,7 @@
                                         @php
                                             $current_year = date("Y");
                                         @endphp
-                                        @for($year=$current_year; $year<=$current_year +1 ;$year++)
+                                        @for($year=$current_year; $year <= $current_year +1 ; $year++)
                                             <option value="{{ $year}}">{{ $year }}</option>
                                         @endfor
                                     </select>
@@ -95,7 +95,7 @@
                                         @php
                                             $current_year = date("Y");
                                         @endphp
-                                        @for($year=$current_year; $year<=$current_year +1 ;$year++)
+                                        @for($year=$current_year; $year <= $current_year +1 ;$year++)
                                             <option value="{{ $year}}">{{ $year }}</option>
                                         @endfor
                                     </select>

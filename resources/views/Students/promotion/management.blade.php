@@ -52,22 +52,25 @@
                                             <tr>
                                                 <td>{{ $loop->index+1 }}</td>
                                                 <td>{{$promotion->student->name}}</td>
-                                                <td>{{$promotion->f_grade->Name}}</td>
+                                                <td>{{$promotion->f_grade->name}}</td>
                                                 <td>{{$promotion->academic_year}}</td>
-                                                <td>{{$promotion->f_classroom->Name_Class}}</td>
-                                                <td>{{$promotion->f_section->Name_Section}}</td>
-                                                <td>{{$promotion->t_grade->Name}}</td>
+                                                <td>{{$promotion->f_classroom->classname}}</td>
+                                                <td>{{$promotion->f_section->section_name}}</td>
+                                                <td>{{$promotion->t_grade->name}}</td>
                                                 <td>{{$promotion->academic_year_new}}</td>
-                                                <td>{{$promotion->t_classroom->Name_Class}}</td>
-                                                <td>{{$promotion->t_section->Name_Section}}</td>
+                                                <td>{{$promotion->t_classroom->classname}}</td>
+                                                <td>{{$promotion->t_section->section_name}}</td>
                                                 <td>
-
-                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#Delete_one{{$promotion->id}}">ارجاع الطالب</button>
-                                                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#">تخرج الطالب</button>
+                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#Delete_one{{$promotion->id}}">
+                                                        ارجاع الطالب
+                                                    </button>
+                                                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#">
+                                                        تخرج الطالب
+                                                    </button>
                                                 </td>
                                             </tr>
-                                        @include('pages.Students.promotion.Delete_all')
-                                        @include('pages.Students.promotion.Delete_one')
+                                        @include('Students.promotion.Delete_all')
+                                        @include('Students.promotion.Delete_one')
                                         @endforeach
                                     </table>
                                 </div>

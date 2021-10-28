@@ -4,5 +4,7 @@ namespace App\Repo;
 interface PromotionInterface{
     public function index();
     public function store($request);
+    public function create();
+    public function destroy($request);
 }
 
