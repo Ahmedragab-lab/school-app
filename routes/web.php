@@ -42,6 +42,7 @@ Route::group(
             Route::post('Delete_attachment',[Controllers\StudentController::class,'Delete_attachment'])->name('Delete_attachment');
 
             Route::resource('Promotion',Controllers\PromotionController::class);
-            
+            Route::resource('Graduated',Controllers\GraduatedController::class);
+
         });
     });
