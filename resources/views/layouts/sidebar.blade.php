@@ -58,6 +58,17 @@
                 </ul>
             </li>
           {{-- end teacher route --}}
+           {{--  parent route --}}
+           <li>
+                <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements1">
+                <div class="pull-left"><i class="fa fa-id-card-o"></i><span class="right-nav-text">{{ __('site.parent') }}</span></div>
+                <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
+                </a>
+                <ul id="elements1" class="collapse" data-parent="#sidebarnav">
+                    <li><a href="{{ route('parent') }}">{{ __('site.parent-list') }}</a></li>
+                </ul>
+           </li>
+          {{--  End parent route --}}
           {{-- student route --}}
           <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu">
@@ -94,31 +105,37 @@
             </ul>
         </li>
           {{-- End student route --}}
-          {{--  parent route --}}
+            <!-- Accounts-->
             <li>
-                <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements1">
-                <div class="pull-left"><i class="fa fa-id-card-o"></i><span class="right-nav-text">{{ __('site.parent') }}</span></div>
-                <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
+                <a href="javascript:void(0);" data-toggle="collapse" data-target="#Accounts-menu">
+                    <div class="pull-left"><i class="fa fa-vcard"></i><span
+                            class="right-nav-text">{{trans('main_trans.Accounts')}}</span></div>
+                    <div class="pull-right"><i class="ti-plus"></i></div>
+                    <div class="clearfix"></div>
                 </a>
-                <ul id="elements1" class="collapse" data-parent="#sidebarnav">
-                    <li><a href="{{ route('parent') }}">{{ __('site.parent-list') }}</a></li>
+                <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
+                    <li> <a href="{{route('Fees.index')}}">الرسوم الدراسية</a> </li>
+                    {{-- <li> <a href="{{route('Fees_Invoices.index')}}">الفواتير</a> </li> --}}
+                    {{-- <li> <a href="{{route('receipt_students.index')}}">سندات القبض</a> </li> --}}
+                    {{-- <li> <a href="{{route('ProcessingFee.index')}}">استبعاد رسوم</a> </li> --}}
+                    {{-- <li> <a href="{{route('Payment_students.index')}}">سندت الصرف</a> </li> --}}
                 </ul>
             </li>
-          {{--  End parent route --}}
+            <!--End  Accounts-->
           {{-- test crud with ajax --}}
-          <li>
+          {{-- <li>
             <a href="{{ route('cruds.index') }}">
               <div class="pull-left"><i class="fa fa-id-badge"></i><span class="right-nav-text">{{ __('test') }}</span></div>
               <div class="clearfix"></div>
             </a>
-          </li>
-          <li>
+          </li> --}}
+          {{-- <li>
             <a href="{{ url('test') }}">
               <div class="pull-left"><i class="fa fa-id-badge"></i><span class="right-nav-text">{{ __('test-counterlivewire') }}</span></div>
               <div class="clearfix"></div>
             </a>
-          </li>
-
+          </li> --}}
+         {{-- end test crud with ajax --}}
         </ul>
     </div>
   </div>

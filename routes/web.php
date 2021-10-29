@@ -43,6 +43,7 @@ Route::group(
 
             Route::resource('Promotion',Controllers\PromotionController::class);
             Route::resource('Graduated',Controllers\GraduatedController::class);
+            Route::resource('Fees',Controllers\FeeController::class);
 
         });
     });
