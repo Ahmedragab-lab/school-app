@@ -35,6 +35,7 @@
                                             <th>{{trans('Students_trans.Grade')}}</th>
                                             <th>{{trans('Students_trans.classrooms')}}</th>
                                             <th>{{trans('السنه الدراسيه')}}</th>
+                                            <th>{{trans('نوع المصاريف')}}</th>
                                             <th>{{trans('ملاحظات')}}</th>
                                             <th>{{trans('Students_trans.Processes')}}</th>
                                         </tr>
@@ -48,6 +49,15 @@
                                                 <td>{{ $fee->grade->name }}</td>
                                                 <td>{{ $fee->classroom->classname }}</td>
                                                 <td>{{ $fee->year }}</td>
+                                                <td>
+                                                   @if ($fee->Fee_type ==1)
+                                                   رسوم دراسية
+                                                   @elseif($fee->Fee_type ==2)
+                                                   رسوم باص
+                                                   @elseif($fee->Fee_type ==3)
+                                                   رسوم زى مدرسى
+                                                   @endif
+                                                </td>
                                                 <td>{{ $fee->description }}</td>
                                                 <td>
                                                     <a href="{{route('Fees.edit',$fee->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true">

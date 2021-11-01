@@ -44,6 +44,10 @@ Route::group(
             Route::resource('Promotion',Controllers\PromotionController::class);
             Route::resource('Graduated',Controllers\GraduatedController::class);
             Route::resource('Fees',Controllers\FeeController::class);
+            Route::resource('Fees_Invoices',Controllers\FeeInvoiceController::class);
+            Route::get('Get_amount/{fee_id}',[Controllers\FeeInvoiceController::class,'get_amount']);
+
+            Route::resource('receipt_students',Controllers\ReceiptStudentController::class);
 
         });
     });

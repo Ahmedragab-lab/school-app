@@ -160,4 +160,6 @@
         });
     });
 </script>
+
 {{-- end  ajax of add student and add new promotion pages --}}
+

@@ -19,6 +19,10 @@ class RepoServiceProvider extends ServiceProvider
         $this->app->bind(Repo\PromotionInterface::class, Repo\PromotionRepo::class);
         $this->app->bind(Repo\GraduatedInterface::class, Repo\GraduatedRepo::class);
         $this->app->bind(Repo\FeesInterface::class, Repo\FeesRepo::class);
+        $this->app->bind(Repo\Fee_invoiceInterface::class, Repo\Fee_invoiceRepo::class);
+        $this->app->bind(Repo\PaymentRepositoryInterface::class, Repo\PaymentRepository::class);
+        $this->app->bind(Repo\ProcessingFeeRepositoryInterface::class, Repo\ProcessingFeeRepository::class);
+        $this->app->bind(Repo\ReceiptStudentsRepositoryInterface::class, Repo\ReceiptStudentsRepository::class);
 
     }
 

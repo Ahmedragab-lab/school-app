@@ -86,6 +86,7 @@
                                 <select class="custom-select mr-sm-2" name="Fee_type">
                                     <option value="1">رسوم دراسية</option>
                                     <option value="2">رسوم باص</option>
+                                    <option value="3">رسوم زى مدرسى</option>
                                 </select>
                             </div>
                         </div>

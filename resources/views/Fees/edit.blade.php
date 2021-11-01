@@ -86,6 +86,7 @@
                                 <select class="custom-select mr-sm-2" name="Fee_type">
                                     <option value="1" {{ $fee->Fee_type ==1 ?'selected':' ' }}>رسوم دراسية</option>
                                     <option value="2" {{ $fee->Fee_type ==2 ?'selected':' ' }}>رسوم باص</option>
+                                    <option value="3" {{ $fee->Fee_type ==3 ?'selected':' ' }}>رسوم زى مدرسى</option>
                                 </select>
                             </div>
                         </div>

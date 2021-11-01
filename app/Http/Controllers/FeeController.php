@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFeesRequest;
 use App\Models\Fee;
 use App\Repo\FeesInterface;
 use Illuminate\Http\Request;
@@ -18,67 +19,37 @@ class FeeController extends Controller
         return $this->fees->index();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
         return $this->fees->create();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(StoreFeesRequest $request)
     {
         return $this->fees->store($request);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Fee  $fee
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Fee $fee)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Fee  $fee
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         return $this->fees->edit($id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Fee  $fee
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request)
+
+    public function update(StoreFeesRequest $request)
     {
         return $this->fees->update($request);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Fee  $fee
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Request $request)
     {
         return $this->fees->destroy($request);
