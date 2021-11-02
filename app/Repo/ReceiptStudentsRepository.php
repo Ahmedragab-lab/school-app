@@ -29,11 +29,7 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
         return view('Receipt.add',compact('student'));
     }
 
-    public function edit($id)
-    {
-        $receipt_student = ReceiptStudent::findorfail($id);
-        return view('Receipt.edit',compact('receipt_student'));
-    }
+
 
     public function store($request)
     {
@@ -80,7 +76,12 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-
+        public function edit($id)
+        {
+            $receipt_student = ReceiptStudent::findorfail($id);
+            return view('Receipt.edit',compact('receipt_student'));
+        }
+        
     public function update($request)
     {
         DB::beginTransaction();

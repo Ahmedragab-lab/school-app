@@ -22,6 +22,7 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <div class="table-responsive">
+                                    <h3>  معالجات الرسوم الدراسية</h3>
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">
@@ -42,11 +43,15 @@
                                             <td>{{ number_format($ProcessingFee->amount, 2) }}</td>
                                             <td>{{$ProcessingFee->description}}</td>
                                                 <td>
-                                                    <a href="{{route('ProcessingFee.edit',$ProcessingFee->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$ProcessingFee->id}}" ><i class="fa fa-trash"></i></button>
+                                                    <a href="{{route('ProcessingFee.edit',$ProcessingFee->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$ProcessingFee->id}}" >
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
-                                        @include('pages.ProcessingFee.Delete')
+                                        @include('ProcessingFee.Delete')
                                         @endforeach
                                     </table>
                                 </div>

@@ -35,4 +35,10 @@ class Student extends Model
     public function images(){
         return $this->morphMany(Image::class , 'imageable');
     }
+
+    // علاقة بين جدول سدادت الطلاب وجدول الطلاب لجلب اجمالي المدفوعات والمتبقي
+    public function student_account()
+    {
+        return $this->hasMany(Student_Account::class, 'student_id');
+    }
 }

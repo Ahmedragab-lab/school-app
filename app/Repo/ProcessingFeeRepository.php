@@ -1,11 +1,12 @@
 <?php
 
 
-namespace App\Repository;
+namespace App\Repo;
 
 
 use App\Models\ProcessingFee;
 use App\Models\Student;
+use App\Models\Student_Account;
 use App\Models\StudentAccount;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -16,19 +17,19 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
     public function index()
     {
         $ProcessingFees = ProcessingFee::all();
-        return view('pages.ProcessingFee.index',compact('ProcessingFees'));
+        return view('ProcessingFee.index',compact('ProcessingFees'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.ProcessingFee.add',compact('student'));
+        return view('ProcessingFee.add',compact('student'));
     }
 
     public function edit($id)
     {
         $ProcessingFee = ProcessingFee::findorfail($id);
-        return view('pages.ProcessingFee.edit',compact('ProcessingFee'));
+        return view('ProcessingFee.edit',compact('ProcessingFee'));
     }
 
     public function store($request)
@@ -46,7 +47,7 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
 
 
             // حفظ البيانات في جدول حساب الطلاب
-            $students_accounts = new StudentAccount();
+            $students_accounts = new Student_Account();
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'ProcessingFee';
             $students_accounts->student_id = $request->student_id;
@@ -80,7 +81,7 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
             $ProcessingFee->save();
 
             // تعديل البيانات في جدول حساب الطلاب
-            $students_accounts = StudentAccount::where('processing_id',$request->id)->first();;
+            $students_accounts = Student_Account::where('processing_id',$request->id)->first();;
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'ProcessingFee';
             $students_accounts->student_id = $request->student_id;

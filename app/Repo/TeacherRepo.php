@@ -5,7 +5,6 @@ namespace App\Repo;
 use App\Models\Gender;
 use App\Models\Speacialization;
 use App\Models\Teacher;
-// use Exception;
 use Illuminate\Support\Facades\Hash;
 
 class TeacherRepo implements TeacherInterface{
@@ -31,7 +30,7 @@ class TeacherRepo implements TeacherInterface{
                 $Teachers->save();
                 session()->flash('Add', 'create successfully');
                 return redirect()->route('teachers.index');
-            }catch (Exception $e) {
+            }catch (\Exception $e) {
                 return redirect()->back()->with(['error' => $e->getMessage()]);
             }
         }
@@ -53,7 +52,7 @@ class TeacherRepo implements TeacherInterface{
                 session()->flash('Edit', 'update successfully');
                 return redirect()->route('teachers.index');
             }
-            catch (Exception $e) {
+            catch (\Exception $e) {
                 return redirect()->back()->with(['error' => $e->getMessage()]);
             }
         }

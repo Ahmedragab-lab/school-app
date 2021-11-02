@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProcessingFee;
+use App\Repo\ProcessingFeeRepositoryInterface;
 use Illuminate\Http\Request;
 
 class ProcessingFeeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $Processing;
+
+    public function __construct(ProcessingFeeRepositoryInterface $Processing)
+    {
+        $this->Processing = $Processing;
+    }
     public function index()
     {
-        //
+        return $this->Processing->index();
     }
 
     /**
@@ -35,7 +37,7 @@ class ProcessingFeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->Processing->store($request);
     }
 
     /**
@@ -44,9 +46,9 @@ class ProcessingFeeController extends Controller
      * @param  \App\Models\ProcessingFee  $processingFee
      * @return \Illuminate\Http\Response
      */
-    public function show(ProcessingFee $processingFee)
+    public function show($id)
     {
-        //
+        return $this->Processing->show($id);
     }
 
     /**
@@ -55,9 +57,9 @@ class ProcessingFeeController extends Controller
      * @param  \App\Models\ProcessingFee  $processingFee
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProcessingFee $processingFee)
+    public function edit($id)
     {
-        //
+        return $this->Processing->edit($id);
     }
 
     /**
@@ -67,9 +69,9 @@ class ProcessingFeeController extends Controller
      * @param  \App\Models\ProcessingFee  $processingFee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProcessingFee $processingFee)
+    public function update(Request $request)
     {
-        //
+        return $this->Processing->update($request);
     }
 
     /**
@@ -78,8 +80,8 @@ class ProcessingFeeController extends Controller
      * @param  \App\Models\ProcessingFee  $processingFee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProcessingFee $processingFee)
+    public function destroy(Request $request)
     {
-        //
+        return $this->Processing->destroy($request);
     }
 }

@@ -48,6 +48,7 @@ Route::group(
             Route::get('Get_amount/{fee_id}',[Controllers\FeeInvoiceController::class,'get_amount']);
 
             Route::resource('receipt_students',Controllers\ReceiptStudentController::class);
+            Route::resource('ProcessingFee',Controllers\ProcessingFeeController::class);
 
         });
     });
