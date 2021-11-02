@@ -1,11 +1,12 @@
 <?php
 
 
-namespace App\Repository;
+namespace App\Repo;
 
 use App\Models\FundAccount;
 use App\Models\PaymentStudent;
 use App\Models\Student;
+use App\Models\Student_Account;
 use App\Models\StudentAccount;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -16,19 +17,19 @@ class PaymentRepository implements PaymentRepositoryInterface
     public function index()
     {
         $payment_students = PaymentStudent::all();
-        return view('pages.Payment.index',compact('payment_students'));
+        return view('Payment.index',compact('payment_students'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.Payment.add',compact('student'));
+        return view('Payment.add',compact('student'));
     }
 
     public function edit($id)
     {
         $payment_student = PaymentStudent::findorfail($id);
-        return view('pages.Payment.edit',compact('payment_student'));
+        return view('Payment.edit',compact('payment_student'));
     }
 
     public function store($request)
@@ -57,7 +58,7 @@ class PaymentRepository implements PaymentRepositoryInterface
 
 
             // حفظ البيانات في جدول حساب الطلاب
-            $students_accounts = new StudentAccount();
+            $students_accounts = new Student_Account();
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'payment';
             $students_accounts->student_id = $request->student_id;
@@ -102,7 +103,7 @@ class PaymentRepository implements PaymentRepositoryInterface
 
 
             // حفظ البيانات في جدول حساب الطلاب
-            $students_accounts = StudentAccount::where('payment_id',$request->id)->first();
+            $students_accounts = Student_Account::where('payment_id',$request->id)->first();
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'payment';
             $students_accounts->student_id = $request->student_id;

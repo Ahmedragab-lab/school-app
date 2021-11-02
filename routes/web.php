@@ -49,6 +49,7 @@ Route::group(
 
             Route::resource('receipt_students',Controllers\ReceiptStudentController::class);
             Route::resource('ProcessingFee',Controllers\ProcessingFeeController::class);
+            Route::resource('Payment_students',Controllers\PaymentStudentController::class);
 
         });
     });
